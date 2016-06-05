@@ -4,6 +4,7 @@ using System.Collections;
 public class ControllerController : MonoBehaviour {
 
     public GameObject SmallControler;
+    public GameObject arrow;
 
     private Vector3 initialPos;
     private Vector3 mousePreviousPos;
