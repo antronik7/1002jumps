@@ -22,6 +22,8 @@ public class ControllerController : MonoBehaviour {
         rotator = GameObject.Find("player/rotator");
         arrow = GameObject.Find("player/rotator/arrow");
         arrow.GetComponent<SpriteRenderer>().enabled = true;
+
+        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 	
 	// Update is called once per frame
@@ -29,7 +31,8 @@ public class ControllerController : MonoBehaviour {
         
         if (Input.GetMouseButtonUp(0))
         {
-            player.GetComponent<Rigidbody2D>().AddForce(-difference.normalized * arrow.transform.localScale.y * 100);
+            Debug.Log((-difference.normalized * 200) * ((arrow.transform.localScale.y - 1) * 10));
+            player.GetComponent<Rigidbody2D>().AddForce((-difference.normalized * 200) * ((arrow.transform.localScale.y - 1) * 10));
             arrow.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
         }
