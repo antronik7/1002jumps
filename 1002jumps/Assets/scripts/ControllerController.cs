@@ -32,7 +32,7 @@ public class ControllerController : MonoBehaviour {
         if (Input.GetMouseButtonUp(0))
         {
             //Debug.Log((-difference.normalized * 200) * ((arrow.transform.localScale.y - 1) * 10));
-            player.GetComponent<Rigidbody2D>().AddForce((-difference.normalized * 150) * ((arrow.transform.localScale.y - 1) * 10));
+            player.GetComponent<Rigidbody2D>().AddForce((-difference.normalized * 100) * ((arrow.transform.localScale.y - 1) * 10));
             arrow.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
         }
