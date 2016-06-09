@@ -21,22 +21,13 @@ public class ControllerController : MonoBehaviour {
         player = GameObject.Find("player");
         rotator = GameObject.Find("player/rotator");
         arrow = GameObject.Find("player/rotator/arrow");
-        arrow.GetComponent<SpriteRenderer>().enabled = true;
+        
 
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        
-        if (Input.GetMouseButtonUp(0))
-        {
-            //Debug.Log((-difference.normalized * 200) * ((arrow.transform.localScale.y - 1) * 10));
-            player.GetComponent<Rigidbody2D>().AddForce((-difference.normalized * 100) * ((arrow.transform.localScale.y - 1) * 10));
-            arrow.GetComponent<SpriteRenderer>().enabled = false;
-            Destroy(gameObject);
-        }
-
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         //Vector3 objectPos = mousePos;
@@ -62,5 +53,23 @@ public class ControllerController : MonoBehaviour {
         rotator.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
 
         arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, 1 + difference.magnitude, arrow.transform.localScale.z);
+
+        if(difference.magnitude > 0.2f)
+        {
+            Debug.Log("WTF");
+            arrow.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            arrow.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            //Debug.Log((-difference.normalized * 200) * ((arrow.transform.localScale.y - 1) * 10));
+            player.GetComponent<Rigidbody2D>().AddForce((-difference.normalized * 75) * ((arrow.transform.localScale.y - 1) * 10));
+            arrow.GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(gameObject);
+        }
     }
 }

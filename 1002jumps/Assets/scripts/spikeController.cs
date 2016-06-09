@@ -15,6 +15,7 @@ public class spikeController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        GameManager.instance.RestScore();
         Application.LoadLevel("main");
     }
 }
