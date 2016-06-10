@@ -8,11 +8,11 @@ public class MapGenerator : MonoBehaviour {
     void Start () {
 
         int index;
-        for (float i = 0; i < 100; i++)
+        for (float i = 1; i < 20; i++)
         {
             index = Random.Range(0, 5);
 
-            Instantiate(section[index], new Vector3(0, 0 + (i * 10.5f), 0), Quaternion.identity);
+            Instantiate(section[index], new Vector3(0, 0 + (i * 10), 0), Quaternion.identity);
         }
 	}
 	

@@ -19,7 +19,8 @@ public class GameplayController : MonoBehaviour {
             Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
             objectPos.z = 0f;
 
-            Instantiate(controller, objectPos, Quaternion.identity);
+            GameObject leController = Instantiate(controller, objectPos, Quaternion.identity) as GameObject;
+            leController.transform.parent = Camera.main.transform;
         }
     }
 }

@@ -39,9 +39,6 @@ public class GameManager : MonoBehaviour {
 
     public void RestScore()
     {
-        Debug.Log("Allo");
-        
-
         if(Score > HighScore)
         {
             HighScore = Score;

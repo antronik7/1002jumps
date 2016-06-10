@@ -28,9 +28,11 @@ public class ControllerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        initialPos = transform.position;
+
+        mousePreviousPos = mousePreviousPos + (Vector3.up * (Time.deltaTime * (2.5f + GameManager.instance.Score / 10)));
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        //Vector3 objectPos = mousePos;
 
         Vector3 objectPos = SmallControler.transform.position + (mousePos - mousePreviousPos);
 
@@ -50,7 +52,8 @@ public class ControllerController : MonoBehaviour {
 
         float rotZ = (Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg) -270;
 
-        rotator.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
+        //rotator.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
+        player.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
 
         arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, 1 + difference.magnitude, arrow.transform.localScale.z);
 
