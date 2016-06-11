@@ -3,10 +3,11 @@ using System.Collections;
 
 public class ForRotation : MonoBehaviour {
 
-    public int speed;
+    private int speed;
+
 	// Use this for initialization
 	void Start () {
-	
+        speed = Random.Range(-60, 60);
 	}
 	
 	// Update is called once per frame
