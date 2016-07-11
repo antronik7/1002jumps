@@ -12,7 +12,7 @@ public class MapGenerator : MonoBehaviour {
         {
             index = Random.Range(0, 5);
 
-            Instantiate(section[index], new Vector3(0, 0 + (i * 10), 0), Quaternion.identity);
+            Instantiate(section[index], new Vector3(0, 20 + (i * 10), 0), Quaternion.identity);
         }
 	}
 	
