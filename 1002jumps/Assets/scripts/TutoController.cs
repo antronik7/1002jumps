@@ -12,6 +12,7 @@ public class TutoController : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
+            GameManager.instance.gameStart = true;
             Destroy(gameObject);
         }
     }

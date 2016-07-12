@@ -53,12 +53,15 @@ public class ControllerController : MonoBehaviour {
         float rotZ = (Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg) -270;
 
         //rotator.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
-        player.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
 
-        arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, 1 + difference.magnitude, arrow.transform.localScale.z);
+
+        
 
         if(difference.magnitude > 0.2f)
         {
+            player.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
+
+            arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, 1 + difference.magnitude, arrow.transform.localScale.z);
             Debug.Log("WTF");
             arrow.GetComponent<SpriteRenderer>().enabled = true;
         }

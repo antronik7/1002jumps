@@ -10,6 +10,9 @@ public class tueurController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(Vector3.up * (Time.deltaTime * (2.5f + GameManager.instance.Score/10)));
+        if(GameManager.instance.gameStart)
+        {
+            transform.Translate(Vector3.up * (Time.deltaTime * (2.5f + GameManager.instance.Score / 10)));
+        }
     }
 }

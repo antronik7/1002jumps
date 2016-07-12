@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour {
     public int HighScore = 0;
     public int Gold = 0;
     public bool cinematicStart = false;
+    public bool gameStart = false;
     public GameObject player;
+    public GameObject gameplayController;
 
     // Use this for initialization
     void Awake () {
@@ -37,9 +39,8 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if(cinematicStart)
+        if(cinematicStart == true && gameStart == false)
         {
-            Debug.Log("Allo");
             float step = 10 * Time.deltaTime;
             Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, new Vector3(0, 20, -10), step);
         }

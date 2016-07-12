@@ -18,6 +18,7 @@ public class CheckPoints : MonoBehaviour {
         if(other.tag == "Player")
         {
             GameManager.instance.Score++;
+            Destroy(gameObject.GetComponent<Collider2D>());
         }
     }
 }
