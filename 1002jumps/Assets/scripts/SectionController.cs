@@ -8,7 +8,7 @@ public class SectionController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if(Random.Range(1, 4) > 3)
+        if(Random.Range(1, 5) > 3)
         {
             int index = Random.Range(0, coinSpawner.Length);
             Instantiate(coin, coinSpawner[index].transform.position, Quaternion.identity);
