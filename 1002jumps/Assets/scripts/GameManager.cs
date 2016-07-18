@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour {
     public bool cinematicStart = false;
     public bool gameStart = false;
     public GameObject player;
-    public GameObject gameplayController;
 
     // Use this for initialization
     void Awake () {
@@ -54,5 +53,22 @@ public class GameManager : MonoBehaviour {
         }
 
         Score = 0;
+    }
+
+    public void RestartGame()
+    {
+        if (Score > HighScore)
+        {
+            HighScore = Score;
+        }
+
+        Score = 0;
+
+        cinematicStart = false;
+        gameStart = false;
+
+        GetComponent<GameplayController>().enabled = false;
+
+        Application.LoadLevel(Application.loadedLevel);
     }
 }

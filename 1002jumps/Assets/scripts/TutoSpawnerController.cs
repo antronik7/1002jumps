@@ -14,7 +14,7 @@ public class TutoSpawnerController : MonoBehaviour {
 	    if(transform.position.y == Camera.main.transform.position.y)
         {
             Instantiate(Tuto, new Vector3(transform.position.x + 2, transform.position.y, transform.position.z), Quaternion.identity);
-            GameManager.instance.gameplayController.SetActive(true);
+            GameManager.instance.GetComponent<GameplayController>().enabled = true;
             Destroy(gameObject);
         }
 	}

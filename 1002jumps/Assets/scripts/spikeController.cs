@@ -17,8 +17,7 @@ public class spikeController : MonoBehaviour {
     {
         if(other.gameObject.tag == "Player")
         {
-            GameManager.instance.RestScore();
-            Application.LoadLevel(Application.loadedLevel);
+            GameManager.instance.RestartGame();
         }
     }
 }
