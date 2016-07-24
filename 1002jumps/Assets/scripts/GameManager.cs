@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
     public bool cinematicStart = false;
     public bool gameStart = false;
     public GameObject player;
+    public GameObject explosion;
+    public GameObject Menu;
 
     // Use this for initialization
     void Awake () {
@@ -32,7 +34,6 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
-        
         Score = 0;
     }
 
@@ -69,6 +70,17 @@ public class GameManager : MonoBehaviour {
 
         GetComponent<GameplayController>().enabled = false;
 
-        Application.LoadLevel(Application.loadedLevel);
+        Instantiate(explosion, player.transform.position, Quaternion.identity);
+        Destroy(player);
+
+        StartCoroutine(SpawnMenu());
+        //Application.LoadLevel(Application.loadedLevel);
+    }
+
+    IEnumerator SpawnMenu()
+    {
+        yield return new WaitForSeconds(1);
+
+        Instantiate(Menu);
     }
 }
