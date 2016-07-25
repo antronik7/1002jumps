@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
     public GameObject explosion;
     public GameObject Menu;
+    public GameObject Canvas;
+    public GameObject ScoreUI;
+    public GameObject MapGenerator;
 
     // Use this for initialization
     void Awake () {
@@ -56,6 +59,15 @@ public class GameManager : MonoBehaviour {
         Score = 0;
     }
 
+    public void StartGame()
+    {
+        ScoreUI.GetComponent<Animator>().SetTrigger("Enter");
+
+        Destroy(Menu);
+
+        cinematicStart = true;
+    }
+
     public void RestartGame()
     {
         if (Score > HighScore)
@@ -81,6 +93,7 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
 
-        Instantiate(Menu);
+        GameObject leMenu = Instantiate(Menu) as GameObject;
+        leMenu.transform.SetParent(Canvas.transform);
     }
 }
