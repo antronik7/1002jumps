@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour {
     public GameObject ScoreUI;
     public GameObject MapGenerator;
 
+    GameObject lePlayer;
+    GameObject leMenu;
+
     // Use this for initialization
     void Awake () {
         RestScore();
@@ -38,6 +41,11 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         Score = 0;
+        Menu.SetActive(true);
+        //leMenu = Instantiate(Menu) as GameObject;
+        //leMenu.transform.position = new Vector3(0, 0, 0);
+        //leMenu.transform.SetParent(Canvas.transform);
+        
     }
 
     // Update is called once per frame
@@ -45,7 +53,7 @@ public class GameManager : MonoBehaviour {
         if(cinematicStart == true && gameStart == false)
         {
             float step = 10 * Time.deltaTime;
-            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, new Vector3(0, 20, -10), step);
+            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, new Vector3(0, lePlayer.transform.position.y, -10), step);
         }
 	}
 
@@ -63,7 +71,15 @@ public class GameManager : MonoBehaviour {
     {
         ScoreUI.GetComponent<Animator>().SetTrigger("Enter");
 
-        Destroy(Menu);
+        //Destroy(Menu);
+        Menu.SetActive(false);
+
+
+        MapGenerator.GetComponent<MapGenerator>().FirstGeneration();
+
+        float positionPlayer = MapGenerator.GetComponent<MapGenerator>().LastSpawnPos;
+
+        lePlayer = Instantiate(player, new Vector3(0, positionPlayer - 10, 0), Quaternion.identity) as GameObject;
 
         cinematicStart = true;
     }
@@ -82,8 +98,8 @@ public class GameManager : MonoBehaviour {
 
         GetComponent<GameplayController>().enabled = false;
 
-        Instantiate(explosion, player.transform.position, Quaternion.identity);
-        Destroy(player);
+        Instantiate(explosion, lePlayer.transform.position, Quaternion.identity);
+        Destroy(lePlayer);
 
         StartCoroutine(SpawnMenu());
         //Application.LoadLevel(Application.loadedLevel);
@@ -93,7 +109,6 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
 
-        GameObject leMenu = Instantiate(Menu) as GameObject;
-        leMenu.transform.SetParent(Canvas.transform);
+        Menu.SetActive(true);
     }
 }

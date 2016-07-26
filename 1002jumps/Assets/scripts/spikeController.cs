@@ -17,6 +17,7 @@ public class spikeController : MonoBehaviour {
     {
         if(other.gameObject.tag == "Player")
         {
+            Debug.Log("Pas sposser passer la");
             GameManager.instance.RestartGame();
         }
     }

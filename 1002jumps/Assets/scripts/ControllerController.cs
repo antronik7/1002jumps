@@ -18,9 +18,9 @@ public class ControllerController : MonoBehaviour {
         mousePreviousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         SmallControler.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        player = GameObject.Find("player");
-        rotator = GameObject.Find("player/rotator");
-        arrow = GameObject.Find("player/rotator/arrow");
+        player = GameObject.Find("player(Clone)");
+        rotator = GameObject.Find("player(Clone)/rotator");
+        arrow = GameObject.Find("player(Clone)/rotator/arrow");
         
 
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
