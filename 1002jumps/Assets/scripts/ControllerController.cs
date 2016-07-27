@@ -12,6 +12,8 @@ public class ControllerController : MonoBehaviour {
     private Vector3 mousePreviousPos;
     private Vector3 difference;
 
+    
+
     // Use this for initialization
     void Start () {
         initialPos = transform.position;
@@ -21,13 +23,18 @@ public class ControllerController : MonoBehaviour {
         player = GameObject.Find("player(Clone)");
         rotator = GameObject.Find("player(Clone)/rotator");
         arrow = GameObject.Find("player(Clone)/rotator/arrow");
-        
 
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(GameManager.instance.gameStart == false)
+        {
+            Destroy(gameObject);
+        }
+
         initialPos = transform.position;
 
         mousePreviousPos = mousePreviousPos + (Vector3.up * (Time.deltaTime * (2.5f + GameManager.instance.Score / 10)));
@@ -62,7 +69,6 @@ public class ControllerController : MonoBehaviour {
             player.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
 
             arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, 1 + difference.magnitude, arrow.transform.localScale.z);
-            Debug.Log("WTF");
             arrow.GetComponent<SpriteRenderer>().enabled = true;
         }
         else
@@ -77,5 +83,7 @@ public class ControllerController : MonoBehaviour {
             arrow.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
         }
+
+        
     }
 }

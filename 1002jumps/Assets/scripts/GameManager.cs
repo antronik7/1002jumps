@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour {
     public GameObject Canvas;
     public GameObject ScoreUI;
     public GameObject MapGenerator;
+    public GameObject TutoSpawner;
+    public Sprite[] skinsShips;
 
     GameObject lePlayer;
     GameObject leMenu;
+    private int indexShip = 0;
 
     // Use this for initialization
     void Awake () {
@@ -69,6 +72,8 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame()
     {
+        Score = 0;
+
         ScoreUI.GetComponent<Animator>().SetTrigger("Enter");
 
         //Destroy(Menu);
@@ -81,6 +86,10 @@ public class GameManager : MonoBehaviour {
 
         lePlayer = Instantiate(player, new Vector3(0, positionPlayer - 10, 0), Quaternion.identity) as GameObject;
 
+        lePlayer.GetComponent<SpriteRenderer>().sprite = skinsShips[indexShip];
+
+        Instantiate(TutoSpawner, new Vector3(0, positionPlayer - 10, 0), Quaternion.identity);
+
         cinematicStart = true;
     }
 
@@ -90,8 +99,6 @@ public class GameManager : MonoBehaviour {
         {
             HighScore = Score;
         }
-
-        Score = 0;
 
         cinematicStart = false;
         gameStart = false;
@@ -110,5 +117,10 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(1);
 
         Menu.SetActive(true);
+    }
+
+    public void changeShip(int i)
+    {
+        indexShip = i;
     }
 }
