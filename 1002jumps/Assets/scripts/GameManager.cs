@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     public int Score = 0;
     public int HighScore = 0;
     public int Gold = 0;
+    public float speed;
     public bool cinematicStart = false;
     public bool gameStart = false;
     public GameObject player;

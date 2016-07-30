@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MotherShipController : MonoBehaviour {
 
+    public float speed;
     // Use this for initialization
     void Start()
     {
@@ -14,7 +15,7 @@ public class MotherShipController : MonoBehaviour {
     {
         if (GameManager.instance.gameStart)
         {
-            transform.Translate(Vector3.down * (Time.deltaTime * (2.5f + GameManager.instance.Score / 10)));
+            transform.Translate(Vector3.down * (Time.deltaTime * (GameManager.instance.speed + GameManager.instance.Score / 10)));
         }
     }
 }

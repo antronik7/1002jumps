@@ -37,7 +37,7 @@ public class ControllerController : MonoBehaviour {
 
         initialPos = transform.position;
 
-        mousePreviousPos = mousePreviousPos + (Vector3.up * (Time.deltaTime * (2.5f + GameManager.instance.Score / 10)));
+        mousePreviousPos = mousePreviousPos + (Vector3.up * (Time.deltaTime * (GameManager.instance.speed + GameManager.instance.Score / 10)));
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 
@@ -61,15 +61,14 @@ public class ControllerController : MonoBehaviour {
 
         //rotator.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
 
-
-        
-
         if(difference.magnitude > 0.2f)
         {
             player.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
 
             arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, 1 + difference.magnitude, arrow.transform.localScale.z);
             arrow.GetComponent<SpriteRenderer>().enabled = true;
+
+            
         }
         else
         {
@@ -78,12 +77,13 @@ public class ControllerController : MonoBehaviour {
 
         if (Input.GetMouseButtonUp(0))
         {
-            //Debug.Log((-difference.normalized * 200) * ((arrow.transform.localScale.y - 1) * 10));
-            player.GetComponent<Rigidbody2D>().AddForce((-difference.normalized * 75) * ((arrow.transform.localScale.y - 1) * 10));
-            arrow.GetComponent<SpriteRenderer>().enabled = false;
+            if (difference.magnitude > 0.2f)
+            {
+                player.GetComponent<Rigidbody2D>().AddForce((-difference.normalized * 75) * ((arrow.transform.localScale.y - 1) * 10));
+                arrow.GetComponent<SpriteRenderer>().enabled = false;
+            }
+
             Destroy(gameObject);
         }
-
-        
     }
 }

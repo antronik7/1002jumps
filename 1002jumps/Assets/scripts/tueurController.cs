@@ -12,7 +12,7 @@ public class tueurController : MonoBehaviour {
 	void Update () {
         if(GameManager.instance.gameStart)
         {
-            transform.Translate(Vector3.up * (Time.deltaTime * (2.5f + GameManager.instance.Score / 10)));
+            transform.Translate(Vector3.up * (Time.deltaTime * (GameManager.instance.speed + GameManager.instance.Score / 10)));
         }
     }
 }
