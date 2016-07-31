@@ -65,7 +65,7 @@ public class ControllerController : MonoBehaviour {
         {
             player.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
 
-            arrow.transform.localScale = new Vector3(arrow.transform.localScale.x, 1 + difference.magnitude, arrow.transform.localScale.z);
+            arrow.transform.localScale = new Vector3(1 + difference.magnitude, 1 + difference.magnitude, arrow.transform.localScale.z);
             arrow.GetComponent<SpriteRenderer>().enabled = true;
 
             
