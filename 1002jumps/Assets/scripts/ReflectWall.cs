@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ReflectWall : MonoBehaviour {
 
+    public int side;
 	// Use this for initialization
 	void Start () {
 	
@@ -13,13 +14,16 @@ public class ReflectWall : MonoBehaviour {
 	
 	}
 
-    void OnCollisionEnter2D(Collision collision)
+    void OnCollisionEnter2D(Collision2D coll)
     {
-        if(collision.gameObject.tag == "player")
+        if(coll.gameObject.tag == "Player")
         {
-            collision.rigidbody.velocity = Vector3.Reflect(collision.rigidbody.velocity, Vector2.left);
-        }
+            //coll.transform.rotation.SetFromToRotation(coll.rigidbody.velocity,Vector3.Reflect(coll.rigidbody.velocity, Vector2.left));
+            Vector3 laNouvelleDir = Vector3.Reflect(coll.rigidbody.velocity, Vector3.left);
 
-        //rigidbody.velocity = Vector3.Reflect(rigidbody.velocity, collision.contacts[0].normal);
+            Debug.Log(Vector3.Angle(Vector3.up, laNouvelleDir));
+
+            coll.transform.rotation = Quaternion.Euler(0, 0, side * Vector3.Angle(Vector3.up, laNouvelleDir));
+        }
     }
 }
