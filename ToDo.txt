@@ -1,4 +1,4 @@
-Changer la grosseur de linterface
+XChanger la grosseur de linterface
 Ajouter les lasers sur le vaiseau
 Faire que le menu du shop se deroule
 Changer le dash du vaiseau
