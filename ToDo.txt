@@ -5,5 +5,5 @@ Changer le dash du vaiseau
 Faire une section que des meteorites spawn
 Faire la section avec le satellite qui secrasse avec lalerte
 Faire plus de section
-Faire les destroyer
+XFaire les destroyer
 Rajouter des sons
