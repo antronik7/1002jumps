@@ -7,3 +7,5 @@ Faire la section avec le satellite qui secrasse avec lalerte
 Faire plus de section
 XFaire les destroyer
 Rajouter des sons
+Ajouter achivements/mission
+Random case for skin
