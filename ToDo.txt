@@ -9,3 +9,4 @@ XFaire les destroyer
 Rajouter des sons
 Ajouter achivements/mission
 Random case for skin
+Bug du feu qui apparait meme si on bouge pas

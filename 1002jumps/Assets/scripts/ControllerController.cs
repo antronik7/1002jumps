@@ -48,7 +48,7 @@ public class ControllerController : MonoBehaviour {
 
         Vector3 allowedPos = objectPos - initialPos;
 
-        allowedPos = Vector3.ClampMagnitude(allowedPos, 0.5f);
+        allowedPos = Vector3.ClampMagnitude(allowedPos, 1f);
 
 
         SmallControler.transform.position = initialPos + allowedPos;
