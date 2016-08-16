@@ -6,8 +6,8 @@ public class ControllerController : MonoBehaviour {
     public GameObject SmallControler;
 
     private GameObject player;
-    private GameObject rotator;
     private GameObject arrow;
+    private GameObject reactor;
     private Vector3 initialPos;
     private Vector3 mousePreviousPos;
     private Vector3 difference;
@@ -21,9 +21,9 @@ public class ControllerController : MonoBehaviour {
 
         SmallControler.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         player = GameObject.Find("player(Clone)");
-        rotator = GameObject.Find("player(Clone)/rotator");
         arrow = GameObject.Find("player(Clone)/rotator/arrow");
-
+        reactor = GameObject.Find("player(Clone)/rotator/reactor");
+        reactor.SetActive(false);
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 	
@@ -77,12 +77,13 @@ public class ControllerController : MonoBehaviour {
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (difference.magnitude > 0.2f)
+            if (difference.magnitude > 0.1f)
             {
                 Debug.Log(difference.magnitude);
                 //player.GetComponent<Rigidbody2D>().AddForce((-difference.normalized * 75) * ((arrow.transform.localScale.y - 1) * 10));
-                player.GetComponent<Rigidbody2D>().AddForce(-difference.normalized * 500);
+                player.GetComponent<Rigidbody2D>().AddForce(-difference.normalized * (500 * difference.magnitude));
                 arrow.GetComponent<SpriteRenderer>().enabled = false;
+                reactor.SetActive(true);
             }
 
             Destroy(gameObject);

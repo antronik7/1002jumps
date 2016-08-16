@@ -16,22 +16,6 @@ public class playerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-    }
-
-    void FixedUpdate()
-    {
-        curPos = transform.position;
-
-        if (curPos == lastPos)
-        {
-            reactor.SetActive(false);
-        }
-        else
-        {
-            reactor.SetActive(true);
-        }
-
-        lastPos = curPos;
+ 
     }
 }

@@ -1,7 +1,7 @@
 XChanger la grosseur de linterface
 Ajouter les lasers sur le vaiseau
 Faire que le menu du shop se deroule
-Changer le dash du vaiseau
+XChanger le dash du vaiseau
 Faire une section que des meteorites spawn
 Faire la section avec le satellite qui secrasse avec lalerte
 Faire plus de section
@@ -9,4 +9,4 @@ XFaire les destroyer
 Rajouter des sons
 Ajouter achivements/mission
 Random case for skin
-Bug du feu qui apparait meme si on bouge pas
+XBug du feu qui apparait meme si on bouge pas
