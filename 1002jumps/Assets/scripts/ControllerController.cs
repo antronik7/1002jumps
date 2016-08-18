@@ -79,7 +79,6 @@ public class ControllerController : MonoBehaviour {
         {
             if (difference.magnitude > 0.1f)
             {
-                Debug.Log(difference.magnitude);
                 //player.GetComponent<Rigidbody2D>().AddForce((-difference.normalized * 75) * ((arrow.transform.localScale.y - 1) * 10));
                 player.GetComponent<Rigidbody2D>().AddForce(-difference.normalized * (500 * difference.magnitude));
                 arrow.GetComponent<SpriteRenderer>().enabled = false;
