@@ -21,7 +21,7 @@ public class MapGenerator : MonoBehaviour {
         {
             if(LastSpawnPos - Camera.main.transform.position.y < 10)
             {
-                index = Random.Range(0, 5);
+                index = Random.Range(0, 7);
 
                 LastSpawnPos = LastSpawnPos + 10;
                 Instantiate(section[index], new Vector3(0, LastSpawnPos, 0), Quaternion.identity);
@@ -39,7 +39,7 @@ public class MapGenerator : MonoBehaviour {
 
         LastSpawnPos = LastSpawnPos + 10;
 
-        index = Random.Range(0, 5);
+        index = Random.Range(0, 7);
 
         Instantiate(section[index], new Vector3(0, LastSpawnPos, 0), Quaternion.identity);
     }

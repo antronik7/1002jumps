@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour {
     Text HighScoreText;
 
     int score;
+
     // Use this for initialization
     void Start () {
         scoreText = transform.GetChild(0).GetComponent<Text>();
@@ -21,10 +22,14 @@ public class UIController : MonoBehaviour {
         scoreText.text = GameManager.instance.Score.ToString();
         HighScoreText.text = GameManager.instance.HighScore.ToString();
 
+
         if(GameManager.instance.Score > score)
         {
+            Debug.Log("allo");
             transform.GetChild(0).GetComponent<Animator>().SetTrigger("GetPoint");
             score = GameManager.instance.Score;
         }
+
+        score = GameManager.instance.Score;
     }
 }
