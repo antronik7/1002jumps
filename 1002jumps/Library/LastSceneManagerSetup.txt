@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/SpaceDash.unity
+- path: Assets/scenes/Logo.unity
   isLoaded: 1
   isActive: 1
