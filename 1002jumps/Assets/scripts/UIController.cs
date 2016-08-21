@@ -25,7 +25,6 @@ public class UIController : MonoBehaviour {
 
         if(GameManager.instance.Score > score)
         {
-            Debug.Log("allo");
             transform.GetChild(0).GetComponent<Animator>().SetTrigger("GetPoint");
             score = GameManager.instance.Score;
         }

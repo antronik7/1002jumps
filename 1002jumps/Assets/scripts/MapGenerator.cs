@@ -3,7 +3,8 @@ using System.Collections;
 
 public class MapGenerator : MonoBehaviour {
 
-    public GameObject[] section;
+    public GameObject[] sectionEasy;
+    public GameObject[] sectionHard;
     public GameObject baseSection;
     public GameObject motherShip;
 
@@ -21,10 +22,30 @@ public class MapGenerator : MonoBehaviour {
         {
             if(LastSpawnPos - Camera.main.transform.position.y < 10)
             {
-                index = Random.Range(0, 7);
+                if(GameManager.instance.Score < 1)
+                {
+                    index = Random.Range(0, sectionEasy.Length);
 
-                LastSpawnPos = LastSpawnPos + 10;
-                Instantiate(section[index], new Vector3(0, LastSpawnPos, 0), Quaternion.identity);
+                    LastSpawnPos = LastSpawnPos + 10;
+                    Instantiate(sectionEasy[index], new Vector3(0, LastSpawnPos, 0), Quaternion.identity);
+                }
+                else
+                {
+                    if(Random.Range(1, 5) > 3)
+                    {
+                        index = Random.Range(0, sectionEasy.Length);
+
+                        LastSpawnPos = LastSpawnPos + 10;
+                        Instantiate(sectionEasy[index], new Vector3(0, LastSpawnPos, 0), Quaternion.identity);
+                    }
+                    else
+                    {
+                        index = Random.Range(0, sectionHard.Length);
+
+                        LastSpawnPos = LastSpawnPos + 10;
+                        Instantiate(sectionHard[index], new Vector3(0, LastSpawnPos, 0), Quaternion.identity);
+                    }
+                }
             }
         }
 	}
@@ -39,8 +60,8 @@ public class MapGenerator : MonoBehaviour {
 
         LastSpawnPos = LastSpawnPos + 10;
 
-        index = Random.Range(0, 7);
+        index = Random.Range(0, sectionEasy.Length);
 
-        Instantiate(section[index], new Vector3(0, LastSpawnPos, 0), Quaternion.identity);
+        Instantiate(sectionEasy[index], new Vector3(0, LastSpawnPos, 0), Quaternion.identity);
     }
 }
