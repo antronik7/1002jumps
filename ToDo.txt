@@ -10,3 +10,13 @@ Rajouter des sons
 Ajouter achivements/mission
 Random case for skin
 XBug du feu qui apparait meme si on bouge pas
+Faire des section plus facile
+Faire que les 3 premier section son toujours facile
+Faire le mur du haut rebondisse
+Faire que les meteorites ne soit pas en contact avec les murs
+Reduire la vitesse des asteroid
+Enlever un triger de meteorite
+Faire une autre zonne de meteorite
+Faire que le gold spawn plus souvent
+Groissier les elements du shop
+?Faire que tu sache quelle truc que tu a selectionner

@@ -52,7 +52,7 @@ public class MeteorSpawnHController : MonoBehaviour {
             }
             
 
-            leMeteor.GetComponent<Rigidbody2D>().AddForce(new Vector2 (dir.x, dir.z) * 200);
+            leMeteor.GetComponent<Rigidbody2D>().AddForce(new Vector2 (dir.x, dir.z) * 150);
 
             Destroy(gameObject);
         }

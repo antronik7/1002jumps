@@ -21,7 +21,7 @@ public class ReflectWall : MonoBehaviour {
             //coll.transform.rotation.SetFromToRotation(coll.rigidbody.velocity,Vector3.Reflect(coll.rigidbody.velocity, Vector2.left));
             Vector3 laNouvelleDir = Vector3.Reflect(coll.rigidbody.velocity, Vector3.left);
 
-            Debug.Log(Vector3.Angle(Vector3.up, laNouvelleDir));
+            
 
             coll.transform.rotation = Quaternion.Euler(0, 0, side * Vector3.Angle(Vector3.up, laNouvelleDir));
         }
