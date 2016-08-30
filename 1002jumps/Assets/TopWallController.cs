@@ -26,7 +26,6 @@ public class TopWallController : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Player")
         {
-            Debug.Log(coll.rigidbody.velocity);
 
             if(coll.rigidbody.velocity.x > 0)
             {

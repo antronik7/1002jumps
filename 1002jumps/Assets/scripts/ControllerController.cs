@@ -48,7 +48,7 @@ public class ControllerController : MonoBehaviour {
 
         Vector3 allowedPos = objectPos - initialPos;
 
-        allowedPos = Vector3.ClampMagnitude(allowedPos, 1f);
+        allowedPos = Vector3.ClampMagnitude(allowedPos, 1.5f);
 
 
         SmallControler.transform.position = initialPos + allowedPos;
@@ -61,14 +61,11 @@ public class ControllerController : MonoBehaviour {
 
         //rotator.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
 
-        if(difference.magnitude > 0.2f)
+        if(difference.magnitude > 0.1f)
         {
             player.transform.rotation = Quaternion.AngleAxis(rotZ, Vector3.forward);
-
             arrow.transform.localScale = new Vector3(1 + difference.magnitude, 1 + difference.magnitude, arrow.transform.localScale.z);
             arrow.GetComponent<SpriteRenderer>().enabled = true;
-
-            
         }
         else
         {
@@ -80,7 +77,7 @@ public class ControllerController : MonoBehaviour {
             if (difference.magnitude > 0.1f)
             {
                 //player.GetComponent<Rigidbody2D>().AddForce((-difference.normalized * 75) * ((arrow.transform.localScale.y - 1) * 10));
-                player.GetComponent<Rigidbody2D>().AddForce(-difference.normalized * (500 * difference.magnitude));
+                player.GetComponent<Rigidbody2D>().AddForce(-difference.normalized * (450 * (difference.magnitude / 1.5f)));
                 arrow.GetComponent<SpriteRenderer>().enabled = false;
                 reactor.SetActive(true);
             }

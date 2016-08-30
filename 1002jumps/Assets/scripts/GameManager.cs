@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
+        Application.targetFrameRate = 60;
+
         RestScore();
         //Check if instance already exists
         if (instance == null)
@@ -123,5 +125,10 @@ public class GameManager : MonoBehaviour {
     public void changeShip(int i)
     {
         indexShip = i;
+    }
+
+    public GameObject getPlayer()
+    {
+        return lePlayer;
     }
 }
